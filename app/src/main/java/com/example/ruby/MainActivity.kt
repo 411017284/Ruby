@@ -15,7 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.BlendMode.Companion.Color
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -54,8 +54,45 @@ fun Greeting(name: String) {
             modifier = Modifier
         )
     }
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Canvas(
+            modifier = Modifier
+                .size(90.dp)
 
+        ) {
+            drawRect(
+                color = Color.Blue,
+                topLeft = Offset(-100f, -230f),
+                size = Size(40f, 40f)
+            )
+            drawRect(
+                color = Color.Blue,
+                topLeft = Offset(690f, 450f),
+                size = Size(40f, 40f)
+            )
+        }
+    }
 }
+@Composable
+fun SecondScreen(onBackPressed: () -> Unit) {
+    // 在這裡放置第二個視窗的內容
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Text("第二個視窗")
+        Button(
+            onClick = onBackPressed,
+            modifier = Modifier.padding(top = 16.dp)
+        ) {
+            Text("返回")
+        }
+    }
+}
+
 
 
 
