@@ -40,7 +40,21 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello Android!")
+    Column(modifier = Modifier
+        .fillMaxWidth()
+        .fillMaxHeight(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally)
+    {
+        Text(text = "作者:資管二A 陳柔涵")
+        Image(
+            painter = painterResource(id = R.drawable.map),
+            contentDescription = "map",
+            alpha = 0.7f,
+            modifier = Modifier
+        )
+    }
+
 }
 
 
